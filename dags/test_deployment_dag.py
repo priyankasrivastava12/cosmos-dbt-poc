@@ -8,7 +8,7 @@ def hello_astronomer():
 with DAG(
     dag_id="test_deployment_dag",
     start_date=datetime(2024, 1, 1),
-    schedule_interval=None,  # Manual trigger only
+    schedule=None,  # Manual trigger only
     catchup=False,
     tags=["test"],
 ) as dag:
