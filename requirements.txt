@@ -3,3 +3,5 @@
 #providers -collections of hooks, operators, and sensors that allow Airflow to connect to and interact with external systems. 
 astronomer-cosmos
 apache-airflow-providers-snowflake
+apache-airflow-providers-common-sql
+
