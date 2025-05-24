@@ -5,14 +5,15 @@ from cosmos import DbtDag, ProjectConfig, ProfileConfig, ExecutionConfig
 from cosmos.profiles import SnowflakeUserPasswordProfileMapping
 
 
-profile_config = ProfileConfig(
-    profile_name="dbtlearn",
-    target_name="dev",
-    profile_mapping=SnowflakeUserPasswordProfileMapping(
-        conn_id="snowflake_conn", 
-        profile_args={"database": "AIRBNB", "schema": "DEV"},
-    )
-)
+
+profile_config = ProfileConfig(profile_name="dbtlearn",
+                               target_name="dev",
+                               profile_mapping=SnowflakeUserPasswordProfileMapping(conn_id="snowflake_conn", 
+                                                    profile_args={
+                                                        "database": "AIRBNB",
+                                                        "schema": "DEV"
+                                                        },
+                                                    ))
 
 dbt_snowflake_dag = DbtDag(
     project_config=ProjectConfig("/usr/local/airflow/dags/dbt/dbtlearn"),
