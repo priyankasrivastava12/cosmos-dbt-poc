@@ -18,9 +18,7 @@ dbt_snowflake_dag = DbtDag(
     project_config=ProjectConfig("/usr/local/airflow/dags/dbt/dbtlearn"),
     operator_args={"install_deps": True},
     profile_config=profile_config,
-    execution_config=ExecutionConfig(
-        dbt_executable_path=f"{os.environ['AIRFLOW_HOME']}/dbt_venv/bin/dbt",
-    ),
+    execution_config=ExecutionConfig(dbt_executable_path=f"{os.environ['AIRFLOW_HOME']}/dbt_venv/bin/dbt",),
     schedule=None,
     start_date=datetime.now() + timedelta(minutes=1),
     catchup=False,
