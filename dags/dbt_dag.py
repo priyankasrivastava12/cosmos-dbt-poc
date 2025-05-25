@@ -19,7 +19,7 @@ dbt_snowflake_dag = DbtDag(project_config=ProjectConfig("/usr/local/airflow/dags
                     operator_args={"install_deps": True},
                     profile_config=profile_config,
                     execution_config=ExecutionConfig(dbt_executable_path=f"{os.environ['AIRFLOW_HOME']}/dbt_venv/bin/dbt",),
-                    schedule=None,
-                    start_date=datetime.now() + timedelta(minutes=1),
+                    schedule="@daily",
+                    start_date=datetime(2023, 9, 10),
                     catchup=False,
                     dag_id="dbt_dag",)
